@@ -190,8 +190,8 @@ end
 stats = regionprops('table',bw,'MajorAxisLength');
 longAxis = max(stats.MajorAxisLength);
 ```
-+ 장축 길이에 따라 드론 이동 거리 계산
-1단계
++ 장축 길이에 따라 드론 이동 거리 계산            
+1. 1단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2, 'Speed', 1);
@@ -205,7 +205,7 @@ else
     distance
 end
 ```
-2단계
+2. 2단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2.2, 'Speed', 1);
@@ -220,7 +220,7 @@ else
     distance
 end
 ```
-3단계
+3. 3단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 1.7, 'Speed', 1);
@@ -235,7 +235,7 @@ else
     distance
 end
 ```
-4단계
+4. 4단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 0.2, 'Speed', 1);

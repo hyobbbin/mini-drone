@@ -48,9 +48,8 @@ drone = ryze();
 cam = camera(drone);
 takeoff(drone);
 ```
-**1단계**
-+ 링 중점 찾기
-1. 파란색 RGB 설정
+**링 중점 찾기**
++ 파란색 RGB 설정
 ```MATLAB
 frame = snapshot(cam);
 r = frame(:,:,1);   detect_r = (r < 50);   
@@ -58,115 +57,115 @@ g = frame(:,:,2);   detect_g = (g > 10) & (g < 120);
 b = frame(:,:,3);   detect_b = (b > 50) & (b < 190);
 blueNemo = detect_r & detect_g & detect_b;
 ```
-2. 파란색 사각형 중심 좌표 계산
++ 파란색 사각형 중심 좌표 계산
 ```MATLAB
 areaNemo = regionprops(blueNemo,'BoundingBox','Centroid','Area');   % 속성 측정; BoundingBox, Centroid, Area 값 추출
-    areaCh = 0;
-    for j = 1:length(areaNemo)
-        boxCh = areaNemo(j).BoundingBox; 
-        if(boxCh(3) == 960 || boxCh(4) == 720)  % 화면 전체를 사각형으로 인식하는 경우 예외 처리
-            continue
+areaCh = 0;
+for j = 1:length(areaNemo)
+    boxCh = areaNemo(j).BoundingBox; 
+    if(boxCh(3) == 960 || boxCh(4) == 720)  % 화면 전체를 사각형으로 인식하는 경우 예외 처리
+        continue
 
-        else
-            if areaCh <= areaNemo(j).Area   % 가장 큰 영역일 때 속성 추출
-                areaCh = areaNemo(j).Area;
-                centroid = areaNemo(j).Centroid;
-            end
+    else
+        if areaCh <= areaNemo(j).Area   % 가장 큰 영역일 때 속성 추출
+            areaCh = areaNemo(j).Area;
+            centroid = areaNemo(j).Centroid;
         end
     end
+end
 ```
-3. center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
++ center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
 ```MATLAB
 dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 
-    % case 1
-    if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
-        disp("Find Center Point!"); 
-        count = 1;
+% case 1
+if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
+    disp("Find Center Point!"); 
+    count = 1;
+
+% case 2
+elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>35)
+    if(dis(1)<=0)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    
+    elseif(dis(1)>0)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    end    
+
+% case 3
+elseif(dis(2)<=0 && abs(dis(2))>35)
+    if(dis(1)<=0 && abs(dis(1))>35)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    
+    elseif(dis(1)>0 && abs(dis(1))>35)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
    
-    % case 2
-    elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>35)
-        if(dis(1)<=0)
-            disp("Move left");
-            moveleft(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        
-        elseif(dis(1)>0)
-            disp("Move right");
-            moveright(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        end    
+    elseif(dis(1)<=0 && abs(dis(1))<=35)
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
 
-     % case 3
-     elseif(dis(2)<=0 && abs(dis(2))>35)
-        if(dis(1)<=0 && abs(dis(1))>35)
-            disp("Move left");
-            moveleft(drone,'Distance',0.2,'Speed',1);
-            disp("Move up");
-            moveup(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        
-        elseif(dis(1)>0 && abs(dis(1))>35)
-            disp("Move right");
-            moveright(drone,'Distance',0.2,'Speed',1);
-            disp("Move up");
-            moveup(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-       
-        elseif(dis(1)<=0 && abs(dis(1))<=35)
-            disp("Move up");
-            moveup(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-
-        elseif(dis(1)>0 && abs(dis(1))<=35)
-            disp("Move up");
-            moveup(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        end
-
-    % case 4
-    elseif(dis(2)>0 && abs(dis(2))<=35 && abs(dis(1))>35)
-        if(dis(1)<=0)
-            disp("Move left");
-            moveleft(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        
-        elseif(dis(1)>0)
-            disp("Move right");
-            moveright(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        end    
-
-     % case 5
-     elseif(dis(2)>0 && abs(dis(2))>35)
-        if(dis(1)<=0 && abs(dis(1))>35)
-            disp("Move left");
-            moveleft(drone,'Distance',0.2,'Speed',1);
-            disp("Move down");
-            movedown(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        
-        elseif(dis(1)>0 && abs(dis(1))>35)
-            disp("Move right");
-            moveright(drone,'Distance',0.2,'Speed',1);
-            disp("Move down");
-            movedown(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        
-        elseif(dis(1)<=0 && abs(dis(1))<=35)
-            disp("Move down");
-            movedown(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-
-        elseif(dis(1)>0 && abs(dis(1))<=35)
-            disp("Move down");
-            movedown(drone,'Distance',0.2,'Speed',1);
-            pause(0.5);
-        end
+    elseif(dis(1)>0 && abs(dis(1))<=35)
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
     end
+
+% case 4
+elseif(dis(2)>0 && abs(dis(2))<=35 && abs(dis(1))>35)
+    if(dis(1)<=0)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    
+    elseif(dis(1)>0)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    end    
+
+% case 5
+elseif(dis(2)>0 && abs(dis(2))>35)
+    if(dis(1)<=0 && abs(dis(1))>35)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    
+    elseif(dis(1)>0 && abs(dis(1))>35)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    
+    elseif(dis(1)<=0 && abs(dis(1))<=35)
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+
+    elseif(dis(1)>0 && abs(dis(1))<=35)
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+        pause(0.5);
+    end
+end
 ```
-+ 링 통과하기
-1. 파란색 HSV 설정
+**링 통과하기**
++ 파란색 HSV 설정
 ```MATLAB
 hsv = rgb2hsv(frame);
 h = hsv(:,:,1);
@@ -185,12 +184,15 @@ for x=1:720
     end
 end
 ```
-2. 원 검출 후 장축 길이에 따라 드론 이동 거리 계산
++ 원 검출 후 장축 길이 계산
 ```MATLAB
+% 속성 측정; 장축 길이 값 추출
 stats = regionprops('table',bw,'MajorAxisLength');
 longAxis = max(stats.MajorAxisLength);
-
-% 장축 길이에 따라서 거리 계산 후 이동
+```
++ 장축 길이에 따라 드론 이동 거리 계산
+1. 1단계
+```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2, 'Speed', 1);
     
@@ -203,7 +205,51 @@ else
     distance
 end
 ```
-
+2. 2단계
+```MATLAB
+if sum(bw,'all') <= 10000
+    moveforward(drone, 'Distance', 2.2, 'Speed', 1);
+    
+elseif longAxis > 860
+    moveforward(drone, 'Distance', 2.2, 'Speed', 1); %1.2m+1m
+    
+else
+    distance = (3E-06)*(longAxis)^2 - 0.0065*longAxis + 4.3399; % 드론과 링 사이의 거리
+    moveforward(drone, 'Distance', distance + 1, 'Speed', 1);   % 링과 표식 사이 거리의 절반만큼 추가 이동
+    pause(1);
+    distance
+end
+```
+3. 3단계
+```MATLAB
+if sum(bw,'all') <= 10000
+    moveforward(drone, 'Distance', 1.7, 'Speed', 1);
+    
+elseif longAxis > 860
+    moveforward(drone, 'Distance', 1.7, 'Speed', 1); %1.2m+0.5m
+    
+else
+    distance = (7E-06)*(longAxis)^2 - 0.0102*longAxis + 4.5856; % 드론과 링 사이의 거리
+    moveforward(drone, 'Distance', distance + 0.5, 'Speed', 1); % 링과 표식 사이 거리의 절반만큼 추가 이동
+    pause(1);
+    distance
+end
+```
+4. 4단계
+```MATLAB
+if sum(bw,'all') <= 10000
+    moveforward(drone, 'Distance', 0.2, 'Speed', 1);
+    
+elseif longAxis > 460
+    moveforward(drone, 'Distance', 0.2, 'Speed', 1);
+    
+else
+    distance = (1E-05)*(longAxis)^2 - 0.0124*longAxis + 4.5996; % 드론과 링 사이의 거리
+    moveforward(drone, 'Distance', distance - 1, 'Speed', 1);   % 링과 표식 사이 거리의 절반만큼 추가 이동
+    distance
+    
+end
+```
 
 
 

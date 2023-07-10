@@ -26,7 +26,9 @@
 * 링 통과하기
   * 파란색 HSV 설정
   * 원 검출 후 regionprops 함수로 장축 길이 측정
-  * 장축 길이에 따른 드론 이동 거리 계산 후 링 통과
+  * 장축 길이에 따른 드론과 링 사이 거리 값 추출
+  * 추출한 값들로 회귀 분석을 통해 드론 이동 거리 식 도출
+  * 드론 이동시켜 링 통과
 
 * ~~표식에 따른 드론~~
 * 4단계 각도 조절
@@ -47,7 +49,8 @@ cam = camera(drone);
 takeoff(drone);
 ```
 **1단계**
-+ 파란색 RGB 추출
++ 링 중점 찾기
+1. 파란색 RGB 설정
 ```MATLAB
 frame = snapshot(cam);
 r = frame(:,:,1);   detect_r = (r < 50);   
@@ -55,7 +58,7 @@ g = frame(:,:,2);   detect_g = (g > 10) & (g < 120);
 b = frame(:,:,3);   detect_b = (b > 50) & (b < 190);
 blueNemo = detect_r & detect_g & detect_b;
 ```
-+ 파란색 사각형 중심 좌표 계산
+2. 파란색 사각형 중심 좌표 계산
 ```MATLAB
 areaNemo = regionprops(blueNemo,'BoundingBox','Centroid','Area');   % 속성 측정; BoundingBox, Centroid, Area 값 추출
     areaCh = 0;
@@ -72,7 +75,7 @@ areaNemo = regionprops(blueNemo,'BoundingBox','Centroid','Area');   % 속성 측
         end
     end
 ```
-+ center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
+3. center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
 ```MATLAB
 dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 
@@ -162,7 +165,8 @@ dis = centroid - center_point;  % 사각형 중점과 center_point 차이
         end
     end
 ```
-
++ 링 통과하기
+1. 파란색 HSV 설정
 
 
 

@@ -191,7 +191,7 @@ stats = regionprops('table',bw,'MajorAxisLength');
 longAxis = max(stats.MajorAxisLength);
 ```
 + 장축 길이에 따라 드론 이동 거리 계산
-1. 1단계
+  + 1단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2, 'Speed', 1);
@@ -205,7 +205,7 @@ else
     distance
 end
 ```
-2. 2단계
+ + 2단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2.2, 'Speed', 1);
@@ -220,7 +220,7 @@ else
     distance
 end
 ```
-3. 3단계
+ + 3단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 1.7, 'Speed', 1);
@@ -235,7 +235,7 @@ else
     distance
 end
 ```
-4. 4단계
+ + 4단계
 ```MATLAB
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 0.2, 'Speed', 1);
@@ -250,9 +250,35 @@ else
     
 end
 ```
+**4단계 각도 조절**
++ 30°부터 5°씩 회전시키며 최적의 각도 계산
+```MATLAB
+% 5도씩 회전하며 탐색
+sum = 0;
 
+for level = 1:7
+    if level > 1
+        turn(drone, deg2rad(5));
+        pause(0.5); % 안정성을 위해 pause 추가
+    end
 
+    frame = snapshot(cam);
+    r = frame(:,:,1);   detect_r = (r < 50);   
+    g = frame(:,:,2);   detect_g = (g > 10) & (g < 120);
+    b = frame(:,:,3);   detect_b = (b > 50) & (b < 190);
+    blueNemo = detect_r & detect_g & detect_b;
+    sumblueNemo = sum(sum(blueNemo));
 
+    if sumblueNemo > sum
+        sum = sumblueNemo;
+        maxlevel = level;
+    end
+end
+```
+```MATLAB
+angle = (-1) * 5 * (7 - maxlevel);
+turn(drone, deg2rad(angle));
+```
 
 
 

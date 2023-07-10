@@ -276,6 +276,7 @@ for level = 1:7
 end
 ```
 ```MATLAB
+% 최적 각도
 angle = (-1) * 5 * (7 - maxlevel);
 turn(drone, deg2rad(angle));
 ```

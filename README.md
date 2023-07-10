@@ -167,8 +167,42 @@ dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 ```
 + 링 통과하기
 1. 파란색 HSV 설정
+```MATLAB
+hsv = rgb2hsv(frame);
+h = hsv(:,:,1);
+s = hsv(:,:,2);
+v = hsv(:,:,3);
+blue = (0.535<h)&(h<0.69)&(0.4<s)&(v>0.1)&(v<0.97);
 
+blue(1,:) = 1;
+blue(720,:) = 1;
+bw = imfill(blue,'holes');
+for x=1:720
+    for y=1:size(blue,2)
+        if blue(x,y)==bw(x,y)
+            bw(x,y)=0;
+        end
+    end
+end
+```
+2. 원 검출 후 장축 길이에 따라 드론 이동 거리 계산
+```MATLAB
+stats = regionprops('table',bw,'MajorAxisLength');
+longAxis = max(stats.MajorAxisLength);
 
+% 장축 길이에 따라서 거리 계산 후 이동
+if sum(bw,'all') <= 10000
+    moveforward(drone, 'Distance', 2, 'Speed', 1);
+    
+elseif longAxis > 860
+    moveforward(drone, 'Distance', 2, 'Speed', 1);
+    
+else
+    distance = (3E-06)*(longAxis)^2 - 0.0065*longAxis + 4.3399; % 드론과 링 사이의 거리
+    moveforward(drone, 'Distance', distance + 1, 'Speed', 1);   % 링과 표식 사이 거리의 절반만큼 추가 이동
+    distance
+end
+```
 
 
 

@@ -299,9 +299,9 @@ turn(drone, deg2rad(angle));
 ```
 ***
 <p align="center">
- <img src="image/KIEE.png" width="36%" height="12%">
- <img src="image/MathWorks.png" width="48%" height="12%">
- </p>
+ <img src="image/KIEE.png" width="60px" height="20px">
+ <img src="image/MathWorks.png" width="134px" height="28px">
+</p>
 
 
 [^1]: 원이 아닌 사각형 중심 좌표를 계산한다. 왜? 2단계 링과 3단계 링의 거리가 가까울 때 2단계에서 원을 추출하려 하면 3단계 원까지 함께 인식되는 문제점이 발생한다. 이를 해결하고자 원이 아닌 파란색 사각형을 추출하는 방식을 이용한다.

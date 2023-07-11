@@ -26,8 +26,7 @@
     * center_point와 파란색 사각형 중심 좌표 상하좌우 차이를 이용하여 드론 위치 조절
     * 오차 범위 내에 드론 위치하면 중점으로 인식    
 
-<img src="image/blueNemo.png" width="44%" height="33%">   
-
+> <img src="image/blueNemo.png" width="44%" height="33%">   
 >  **사각형**을 검출하여 중심 좌표를 얻도록 한다.
 
 * 링 통과하기

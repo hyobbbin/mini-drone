@@ -4,7 +4,8 @@
 ***
 ## 대회 진행 전략
 * 맵 상세 규격             
-<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="40%" height="30%"></img>   <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="40%" height="30%"></img>
+<img align="left" src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="40%" height="30%"></img>
+<img align="right" src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="40%" height="30%"></img>
 
 
   * 고정 사항

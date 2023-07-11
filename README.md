@@ -1,8 +1,8 @@
 # 대한전기학회 2023 미니드론 자율비행 경진대회
 대한전기학회 2023 미니드론 자율비행 경진대회  
 팀 국민대통합 기술워크샵
-<p align="center"><img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%"></img>
-<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="44%" height="33%"></img></p>             
+<p align="center"><img src="image/map1.png" width="44%" height="33%"></img>
+<img src="image/map2.png" width="44%" height="33%"></img></p>             
 
 ***
 ## 대회 진행 전략
@@ -37,7 +37,7 @@
   * 추출한 값들로 회귀 분석을 통해 드론 이동 거리 식 도출
   * 드론 이동시켜 링 통과
 <p align="center">
-    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/69d8e5fd-f616-4c59-b1eb-1a98642025b9" width="44%" height="33%">
+    <img src="image/blueO.png" width="44%" height="33%">
 </p>                   
 
 * 링 통과 후 드론 제어
@@ -168,7 +168,7 @@ end
 ```
 + 회귀 분석을 통해 장축 길이에 따른 드론 이동 거리 관계식 도출
 <p align="center">
-    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/95f4c9e6-4261-4713-9b29-195fbd1b8dfd" width="44%" height="33%">
+    <img src="image/reGressionAnalysis_1,2.png" width="44%" height="33%">
 </p>       
 
 ```MATLAB
@@ -201,7 +201,7 @@ else
 end
 ```
 <p align="center">
-    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/eed6053b-2a7b-4aa7-9baf-0803c68da5bb" width="44%" height="33%">
+    <img src="image/reGressionAnalysis_3.png" width="44%" height="33%">
 </p>           
 
 ```MATLAB
@@ -220,7 +220,7 @@ else
 end
 ```
 <p align="center">
-    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/a63a1c1b-0c00-4358-b6b1-9bc30630e988" width="44%" height="33%">
+    <img src="image/reGressionAnalysis_4.png" width="44%" height="33%">
 </p>           
 
 ```MATLAB

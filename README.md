@@ -92,7 +92,7 @@ end
 ```
 + center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
 <p align="center">
-    <img src="image/case.png" width="44%" height="33%">
+    <img src="image/case.png" width="80%" height="60%">
 </p>         
 
 > 드론이 천을 바라보았을 때의 경우를 크게 상하좌우 4가지로 나누었다. 그 후 세부적으로 경우의 수를 따져 아래와 같이 여러 case에 따라 드론 위치를 조절하는 코드를 작성했다.       

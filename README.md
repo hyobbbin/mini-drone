@@ -3,7 +3,7 @@
 팀 국민대통합 기술워크샵
 ***
 ## 대회 진행 전략
-* 맵 상세 규격
+* 맵 상세 규격             
 <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="40%" height="30%"></img>
 
   * 고정 사항

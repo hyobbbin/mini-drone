@@ -29,6 +29,8 @@
     <img src="image/blueNemo.png" width="44%" height="33%">
 </p>                      
 
+> 링의 중점을 찾는 경우, 사각형을 검출한다.
+
 * 링 통과하기
 
   * 파란색 HSV 설정
@@ -39,6 +41,8 @@
 <p align="center">
     <img src="image/blueO.png" width="44%" height="33%">
 </p>                   
+
+> 링을 통과하는 경우, 원을 검출한다.
 
 * 링 통과 후 드론 제어
   * 드론이 링을 통과하면 바로 단계에 맞게 명령 코드[^2]를 입력하여 제어

@@ -1,12 +1,10 @@
 # 대한전기학회 2023 미니드론 자율비행 경진대회
 대한전기학회 2023 미니드론 자율비행 경진대회  
 팀 국민대통합 기술워크샵
+<p align="center"><img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%"></img>
+<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="44%" height="33%"></img></p>           
 ***
 ## 대회 진행 전략
-    
-<p align="center"><img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%"></img>
-<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="44%" height="33%"></img></p>             
-
 * 맵 상세 규격
   * 고정 사항
     * 드론 이륙 지점과 1단계 링 사이 거리 : 1m

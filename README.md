@@ -167,12 +167,12 @@ elseif(dis(2)>0 && abs(dis(2))>35)
 end
 ```
 + 회귀 분석을 통해 장축 길이에 따른 드론 이동 거리 관계식 도출
-1. 1단계
 <p align="center">
     <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/95f4c9e6-4261-4713-9b29-195fbd1b8dfd" width="44%" height="33%">
 </p>       
 
 ```MATLAB
+% 1단계
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2, 'Speed', 1);
     
@@ -185,8 +185,8 @@ else
     distance
 end
 ```
-2. 2단계
 ```MATLAB
+% 2단계
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2.2, 'Speed', 1);
     
@@ -200,8 +200,12 @@ else
     distance
 end
 ```
-3. 3단계
+<p align="center">
+    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/eed6053b-2a7b-4aa7-9baf-0803c68da5bb" width="44%" height="33%">
+</p>           
+
 ```MATLAB
+% 3단계
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 1.7, 'Speed', 1);
     
@@ -215,8 +219,12 @@ else
     distance
 end
 ```
-4. 4단계
+<p align="center">
+    <img src="" width="44%" height="33%">
+</p>           
+
 ```MATLAB
+% 4단계
 if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 0.2, 'Speed', 1);
     

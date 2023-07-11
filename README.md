@@ -89,6 +89,10 @@ for j = 1:length(areaNemo)
 end
 ```
 + center point와 사각형 중심 좌표와 차이를 이용해 드론 위치 조절
+<p align="center">
+    <img src="image/case.png" width="44%" height="33%">
+</p>                      
+
 ```MATLAB
 dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 

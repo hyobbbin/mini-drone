@@ -28,7 +28,7 @@
 
 >  **사각형**을 검출하여 중심 좌표를 얻도록 한다.
 
-> <img src="image/blueNemo.png" width="44%" height="33%">   
+<img src="image/blueNemo.png" width="44%" height="33%">   
 
 * 링 통과하기
 

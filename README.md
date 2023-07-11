@@ -220,7 +220,7 @@ else
 end
 ```
 <p align="center">
-    <img src="" width="44%" height="33%">
+    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/a63a1c1b-0c00-4358-b6b1-9bc30630e988" width="44%" height="33%">
 </p>           
 
 ```MATLAB
@@ -239,25 +239,25 @@ else
 end
 ```
 **링 통과 후 드론 제어**
-1. 1단계
 ```MATLAB
+% 1단계
 turn(drone, deg2rad(90));   % 1단계 통과 후 90도 회전
 moveback(drone,'Distance',1,'Speed',1);   % 사각형 전체 한 번에 인식하기 위해 뒤로 이동   
 count = 0;
 ```
-2. 2단계
 ```MATLAB
+% 2단계
 turn(drone, deg2rad(90));   % 2단계 통과 후 90도 회전
 moveback(drone,'Distance',1,'Speed',1);   % 사각형 전체 한 번에 인식하기 위해 뒤로 이동
 count = 0;
 ```
-3. 3단계
 ```MATLAB
+% 3단계
 turn(drone, deg2rad(30));   % 3단계 통과 후 30도 회전
 count=0;
 ```
-4. 4단계
 ```MATLAB
+% 4단계
 land(drone);
 ```
 **4단계 각도 조절**

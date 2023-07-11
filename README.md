@@ -92,10 +92,10 @@ end
 ```MATLAB
 dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 
- % case 1
-    if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
-        disp("Find Center Point!"); 
-        count = 1;
+% case 1
+if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
+    disp("Find Center Point!"); 
+    count = 1;
    
 % case 2
 elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>35)

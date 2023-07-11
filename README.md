@@ -24,6 +24,7 @@
 <p align="center">
     <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/fdf71b0b-75ff-4d86-8d66-1106031f79fc" width="44%" height="33%">
 </p>      
+  
   * 파란색 RGB 설정
   * center_point 설정
   * regionprops 함수로 파란색 사각형[^1] 중심 좌표 계산

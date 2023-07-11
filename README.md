@@ -25,9 +25,8 @@
     * regionprops 함수로 파란색 사각형[^1] 중심 좌표 계산
     * center_point와 파란색 사각형 중심 좌표 상하좌우 차이를 이용하여 드론 위치 조절
     * 오차 범위 내에 드론 위치하면 중점으로 인식    
-> <p align="center">
->     <img src="image/blueNemo.png" width="44%" height="33%">
-> </p>                      
+
+> <img src="image/blueNemo.png" width="44%" height="33%">                      
 > 링의 중점을 찾는 경우, 사각형을 검출한다.
 
 * 링 통과하기

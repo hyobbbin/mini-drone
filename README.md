@@ -84,13 +84,80 @@ end
 ```MATLAB
 dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 
-% case 1
+ % case 1
     if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
         disp("Find Center Point!"); 
         count = 1;
    
 % case 2
-elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>출          
+elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>35)
+    if(dis(1)<=0)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+    
+    elseif(dis(1)>0)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+    end    
+
+% case 3
+elseif(dis(2)<=0 && abs(dis(2))>35)
+    if(dis(1)<=0 && abs(dis(1))>35)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+    
+    elseif(dis(1)>0 && abs(dis(1))>35)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+   
+    elseif(dis(1)<=0 && abs(dis(1))<=35)
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+
+    elseif(dis(1)>0 && abs(dis(1))<=35)
+        disp("Move up");
+        moveup(drone,'Distance',0.2,'Speed',1);
+    end
+
+% case 4
+elseif(dis(2)>0 && abs(dis(2))<=35 && abs(dis(1))>35)
+    if(dis(1)<=0)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+    
+    elseif(dis(1)>0)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+    end    
+
+% case 5
+elseif(dis(2)>0 && abs(dis(2))>35)
+    if(dis(1)<=0 && abs(dis(1))>35)
+        disp("Move left");
+        moveleft(drone,'Distance',0.2,'Speed',1);
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+    
+    elseif(dis(1)>0 && abs(dis(1))>35)
+        disp("Move right");
+        moveright(drone,'Distance',0.2,'Speed',1);
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+    
+    elseif(dis(1)<=0 && abs(dis(1))<=35)
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+
+    elseif(dis(1)>0 && abs(dis(1))<=35)
+        disp("Move down");
+        movedown(drone,'Distance',0.2,'Speed',1);
+    end
+end
+```  
 1. 1단계
 ```MATLAB
 if sum(bw,'all') <= 10000

@@ -284,7 +284,7 @@ count = 0;
 ```MATLAB
 % 3단계
 turn(drone, deg2rad(30));   % 3단계 통과 후 30도 회전
-count=0;
+count = 0;
 ```
 ```MATLAB
 % 4단계

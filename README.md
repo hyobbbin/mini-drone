@@ -3,8 +3,8 @@
 팀 국민대통합 기술워크샵
 ***
 ## 대회 진행 전략
-* 맵 상세 규격       
-<img src="![image](https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658)", width="40%", height="30%"></img>
+* 맵 상세 규격
+<img src="![image](https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658)" width="40%" height="30%"></img>
 ![image](https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658)
   * 고정 사항
     * 드론 이륙 지점과 1단계 링 사이 거리 : 1m

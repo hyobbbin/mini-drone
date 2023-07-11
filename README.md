@@ -30,8 +30,6 @@
 
 > <img src="image/blueNemo.png" width="44%" height="33%">   
 
->  **사각형**을 검출하여 중심 좌표를 얻도록 한다.
-
 * 링 통과하기
 
   * 파란색 HSV 설정

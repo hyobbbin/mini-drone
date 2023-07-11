@@ -37,9 +37,8 @@
   * 장축 길이에 따른 드론과 링 사이 거리 값 추출
   * 추출한 값들로 회귀 분석을 통해 드론 이동 거리 식 도출
   * 드론 이동시켜 링 통과
-<p align="center">
-    <img src="image/blueO.png" width="44%" height="33%">
-</p>                   
+
+<img src="image/blueO.png" width="44%" height="33%">                
 
 > **원**을 검출하여 장축의 길이로부터 드론의 이동 거리를 얻도록 한다.
 

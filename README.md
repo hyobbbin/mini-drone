@@ -157,7 +157,8 @@ elseif(dis(2)>0 && abs(dis(2))>35)
         movedown(drone,'Distance',0.2,'Speed',1);
     end
 end
-```  
+```
++ 회귀 분석을 통해 장축 길이에 따른 드론 이동 거리 관계식 도출
 1. 1단계
 ```MATLAB
 if sum(bw,'all') <= 10000

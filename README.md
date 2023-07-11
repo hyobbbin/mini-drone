@@ -29,6 +29,7 @@
 <p align="center">
     <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/fdf71b0b-75ff-4d86-8d66-1106031f79fc" width="44%" height="33%">
 </p>                      
+
 * 링 통과하기
   * 파란색 HSV 설정
   * 원 검출 후 regionprops 함수로 장축 길이 측정

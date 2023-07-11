@@ -104,7 +104,7 @@ dis = centroid - center_point;  % 사각형 중점과 center_point 차이
 if(abs(dis(1))<=35 && abs(dis(2))<=35)    % x 좌표 차이, y 좌표 차이가 35보다 작을 경우 center point 인식
     disp("Find Center Point!"); 
     count = 1;
-   
+
 % case 2
 elseif(dis(2)<=0 && abs(dis(2))<=35 && abs(dis(1))>35)
     if(dis(1)<=0)
@@ -174,6 +174,30 @@ elseif(dis(2)>0 && abs(dis(2))>35)
     end
 end
 ```
+**링 통과하기**
++ 파란색 HSV 설정 및 원 검출
+```MATLAB
+hsv = rgb2hsv(frame);
+h = hsv(:,:,1);
+s = hsv(:,:,2);
+v = hsv(:,:,3);
+blue = (0.535<h)&(h<0.69)&(0.4<s)&(v>0.1)&(v<0.97);
+
+blue(1,:) = 1;
+blue(720,:) = 1;
+bw = imfill(blue,'holes');
+for x=1:720
+    for y=1:size(blue,2)
+        if blue(x,y)==bw(x,y)
+            bw(x,y)=0;
+        end
+    end
+end
+
+% 속성 측정; 장축 길이 값 추출
+stats = regionprops('table',bw,'MajorAxisLength');
+longAxis = max(stats.MajorAxisLength);
+```
 + 회귀 분석을 통해 장축 길이에 따른 드론 이동 거리 관계식 도출
 <p align="center">
     <img src="image/reGressionAnalysis_1,2.png" width="44%" height="33%">
@@ -199,12 +223,11 @@ if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 2.2, 'Speed', 1);
     
 elseif longAxis > 860
-    moveforward(drone, 'Distance', 2.2, 'Speed', 1); %1.2m+1m
+    moveforward(drone, 'Distance', 2.2, 'Speed', 1);    % 1.2m+1m
     
 else
     distance = (3E-06)*(longAxis)^2 - 0.0065*longAxis + 4.3399; % 드론과 링 사이의 거리
     moveforward(drone, 'Distance', distance + 1, 'Speed', 1);   % 링과 표식 사이 거리의 절반만큼 추가 이동
-    pause(1);
     distance
 end
 ```
@@ -218,12 +241,11 @@ if sum(bw,'all') <= 10000
     moveforward(drone, 'Distance', 1.7, 'Speed', 1);
     
 elseif longAxis > 860
-    moveforward(drone, 'Distance', 1.7, 'Speed', 1); %1.2m+0.5m
+    moveforward(drone, 'Distance', 1.7, 'Speed', 1);    % 1.2m+0.5m
     
 else
     distance = (7E-06)*(longAxis)^2 - 0.0102*longAxis + 4.5856; % 드론과 링 사이의 거리
     moveforward(drone, 'Distance', distance + 0.8, 'Speed', 1); % 링과 표식 사이 거리의 절반만큼 추가 이동
-    pause(1);
     distance
 end
 ```

@@ -5,7 +5,8 @@
 ## 대회 진행 전략
 * 맵 상세 규격             
 <p align="center"><img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%"></img>
-<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="44%" height="33%"></img></p>                     
+<img src="https://github.com/hyobbbin/mini-drone/assets/130888836/c743c7d5-0df9-4427-82e2-19fa905e5cb1" width="44%" height="33%"></img></p>          
+
   * 고정 사항
     * 드론 이륙 지점과 1단계 링 사이 거리 : 1m
     * 1, 2, 3, 4단계 링 지름 : 78cm, 78cm, 57cm, 50cm

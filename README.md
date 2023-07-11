@@ -298,7 +298,7 @@ angle = (-1) * 5 * (7 - maxlevel);
 turn(drone, deg2rad(angle));
 ```
 ***
-<p align="center"><img src="image/kiee.jpg" width="44%" height="33%"></img>
+<p align="center"><img src="image/KIEE.png" width="44%" height="33%"></img>
 <img src="image/MathWorks.png" width="44%" height="33%"></img></p>
 
 

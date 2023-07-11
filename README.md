@@ -174,7 +174,8 @@ end
 + 회귀 분석을 통해 장축 길이에 따른 드론 이동 거리 관계식 도출
 <p align="center">
     <img src="image/reGressionAnalysis_1,2.png" width="44%" height="33%">
-</p>          
+</p>                     
+
 ```MATLAB
 % 1단계
 if sum(bw,'all') <= 10000

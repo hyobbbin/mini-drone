@@ -22,7 +22,7 @@
 
 * 링 중점 찾기
 <p align="center">
-    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%">
+    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/fdf71b0b-75ff-4d86-8d66-1106031f79fc" width="44%" height="33%">
 </p>      
   * 파란색 RGB 설정
   * center_point 설정

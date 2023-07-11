@@ -21,6 +21,9 @@
     * 링의 각도 : 30 ~ 60° 이내
 
 * 링 중점 찾기
+<p align="center">
+    <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/5d878661-3218-482e-afa4-b8571cfb8658" width="44%" height="33%">
+</p>      
   * 파란색 RGB 설정
   * center_point 설정
   * regionprops 함수로 파란색 사각형[^1] 중심 좌표 계산

@@ -39,6 +39,8 @@
   * 드론 이동시켜 링 통과
 <p align="center">
     <img src="image/blueO.png" width="44%" height="33%">
+    > 링을 통과하는 경우, 원을 검출한다.
+
 </p>                   
 
 > 링을 통과하는 경우, 원을 검출한다.

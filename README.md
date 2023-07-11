@@ -21,15 +21,14 @@
     * 링의 각도 : 30 ~ 60° 이내
 
 * 링 중점 찾기
+  * 파란색 RGB 설정
+  * center_point 설정
+  * regionprops 함수로 파란색 사각형[^1] 중심 좌표 계산
+  * center_point와 파란색 사각형 중심 좌표 상하좌우 차이를 이용하여 드론 위치 조절
+  * 오차 범위 내에 드론 위치하면 중점으로 인식    
 <p align="center">
     <img src="https://github.com/hyobbbin/mini-drone/assets/130888836/fdf71b0b-75ff-4d86-8d66-1106031f79fc" width="44%" height="33%">
-</p>      
-    * 파란색 RGB 설정
-    * center_point 설정
-    * regionprops 함수로 파란색 사각형[^1] 중심 좌표 계산
-    * center_point와 파란색 사각형 중심 좌표 상하좌우 차이를 이용하여 드론 위치 조절
-    * 오차 범위 내에 드론 위치하면 중점으로 인식    
-
+</p>                      
 * 링 통과하기
   * 파란색 HSV 설정
   * 원 검출 후 regionprops 함수로 장축 길이 측정

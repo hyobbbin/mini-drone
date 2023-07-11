@@ -299,8 +299,8 @@ turn(drone, deg2rad(angle));
 ```
 ***
 <p align="center">
- <img src="image/KIEE.png" width="600px" height="200px">
- <img src="image/MathWorks.png" width="1340px" height="280px">
+ <img src="image/KIEE.png" width="120px" height="40px">
+ <img src="image/MathWorks.png" width="268px" height="56px">
 </p>
 
 

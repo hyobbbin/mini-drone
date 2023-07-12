@@ -319,7 +319,9 @@ angle = (-1) * 5 * (7 - maxlevel);
 turn(drone, deg2rad(angle));
 ```
 ***
-국민대통합 정현우 이효빈 김주영
+<p align="center">
+  정현우 이효빈 김주영
+</p>
 ***
 <p align="center">
  <img src="image/KIEE.png" width="120px" height="40px">

@@ -1,5 +1,5 @@
 # 대한전기학회 2023 미니드론 자율비행 경진대회
-대한전기학회 2023 미니드론 자율비행 경진대회<br/>           
+대한전기학회 2023 미니드론 자율비행 경진대회          
 팀 국민대통합 기술워크샵
 <p align="center"><img src="image/map1.png" width="44%" height="33%"></img>
 <img src="image/map2.png" width="44%" height="33%"></img></p>             
